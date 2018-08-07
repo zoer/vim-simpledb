@@ -60,7 +60,7 @@ function! s:PostgresCommand(conprops, query)
     let sql_text = shellescape(a:query)
   end
 
-  let sql_text = escape(sql_text, '%')
+  let sql_text = escape(sql_text, "%\n#")
   let cmdline = 'echo -e ' . sql_text . '| psql ' . a:conprops
   return cmdline
 endfunction
